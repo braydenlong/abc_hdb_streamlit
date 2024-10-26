@@ -1,4 +1,9 @@
-openai
-python-dotenv
 streamlit
-dotenv
+python-dotenv
+openai
+tiktoken
+langchain
+langchain-openai
+langchain-text-splitters
+langchain-community
+langchain-chroma
