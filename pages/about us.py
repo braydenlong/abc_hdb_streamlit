@@ -17,7 +17,7 @@ with st.container():
 
     st.subheader('Data Sources Used')
     st.markdown('Procedure for Buying a Resale HDB Flat: https://file.go.gov.sg/hdb-rfl-buyer-guide.pdf')
-    st.markdown('HDB Resale Flat Terms and Conditions: https://www.hdb.gov.sg/cs/infoweb/e-resale/resale-purchase-of-an-hdb-resale-flat')
+    st.markdown('HDB Resale Flat Terms and Conditions: https://www.hdb.gov.sg/-/media/doc/EAPG-CSC/Resale-Terms--Conditions-28-Sep-2021.ashx')
     
     
     st.subheader('Features')
