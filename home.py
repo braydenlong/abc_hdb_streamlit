@@ -1,13 +1,16 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import sqlite3
+
 import streamlit as st
 
 from helpers.utility import check_password
 from helpers.model_processing import process_user_input
 from helpers.hdb_model_processing import process_user_input_hdb
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-import sqlite3
+
+
 if not check_password():  
     st.stop()
     
