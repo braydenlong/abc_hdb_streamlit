@@ -36,7 +36,7 @@ embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
 # llm to be used in RAG pipeplines in this notebook
 llm = ChatOpenAI(model='gpt-4o-mini', temperature=0, seed=42)
 
-filepath = "C:/Users/longb/Desktop/abc-streamlit/helpers/hdb_resale_tnc.pdf"
+filepath = "https://www.hdb.gov.sg/-/media/doc/EAPG-CSC/Resale-Terms--Conditions-28-Sep-2021.ashx"
 
 # Load the document from the URL
 loader = PyMuPDFLoader(filepath)
