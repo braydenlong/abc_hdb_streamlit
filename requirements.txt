@@ -7,3 +7,4 @@ langchain-openai
 langchain-text-splitters
 langchain-community
 langchain-chroma
+protobuf==3.20.*
