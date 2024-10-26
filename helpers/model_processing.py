@@ -8,6 +8,7 @@ from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_chroma import Chroma
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
+import requests
 
 load_dotenv('.env')
 
@@ -36,11 +37,25 @@ embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
 # llm to be used in RAG pipeplines in this notebook
 llm = ChatOpenAI(model='gpt-4o-mini', temperature=0, seed=42)
 
-filepath = "https://www.hdb.gov.sg/-/media/doc/EAPG-CSC/Resale-Terms--Conditions-28-Sep-2021.ashx"
+filepath = "https://www.hdb.gov.sg/-/media/doc/EAPG-CSC/Resale-Terms--Conditions-9-May-2023-updated.pdf"
 
-# Load the document from the URL
-loader = PyMuPDFLoader(filepath)
-documents = loader.load()
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+
+response = requests.get(filepath, headers=headers)
+
+# Check if the request was successful
+if response.status_code == 200:
+    with open('document.pdf', 'wb') as f:
+        f.write(response.content)
+
+    # Load the document using PyMuPDFLoader
+    loader = PyMuPDFLoader('document.pdf')
+    documents = loader.load()
+    print('success')
+else:
+    print(f"Failed to download the document, status code: {response.status_code}")
 
 # i = 0
 # for doc in documents:
